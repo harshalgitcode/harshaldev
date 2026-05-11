@@ -1,9 +1,18 @@
+
+
+
+
+
+
+
+
 import { useState, useEffect, useRef } from "react";
 import myImg from "./Images/myimg.jpeg";
 import Art1 from "./Images/Art1.webp";
 import Art2 from "./Images/Art2.webp";
 import Art3 from "./Images/Art3.webp";
 import Art4 from "./Images/Art4.webp";
+import Art5 from "./Images/Art5.webp";   // ✅ NEW: Shivaji Maharaj image
 
 const useIsMobile = () => {
   const [mobile, setMobile] = useState(false);
@@ -16,16 +25,40 @@ const useIsMobile = () => {
   return mobile;
 };
 
+// Updated skillSections with proper SVG icons (like Passion Modules style)
 const skillSections = [
   {
     label: "LANGUAGES, FRAMEWORKS & LIBRARIES",
     color: "#00d4ff",
-    items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "ES6+", "React JS", "Next.js", "Redux Toolkit", "React Query", "Formik"],
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="4" y="6" width="24" height="18" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <line x1="4" y1="12" x2="28" y2="12" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+        <polyline points="10,18 13,21 10,24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <polyline points="22,18 19,21 22,24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="16" cy="21" r="1.5" fill="currentColor" opacity="0.6" />
+      </svg>
+    ),
+    items: [
+      "HTML5", "CSS3", "JavaScript", "TypeScript", "ES6+",
+      "React JS", "Next.js", "Redux Toolkit", "React Query", "Formik"
+    ]
   },
   {
     label: "UI TOOLS & SPECIAL ABILITIES",
     color: "#00ff88",
-    items: ["Bootstrap", "Material UI", "GitHub", "Postman", "VS Code", "Creative Web Design",  "Digital Art Creation","Auto-Desk Sketch-Book"],
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 4L4 10L16 16L28 10L16 4Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M4 16L16 22L28 16" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M4 22L16 28L28 22" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity="0.5" />
+      </svg>
+    ),
+    items: [
+      "Bootstrap", "Material UI", "GitHub", "Postman",
+      "VS Code", "Creative Web Design", "Digital Art Creation", "Auto-Desk Sketch-Book"
+    ]
   },
 ];
 
@@ -82,6 +115,20 @@ const artworks = [
     attributes: ["Omnipotence", "Compassion", "Fearlessness", "Presence"],
     mantra: "जय जय स्वामी समर्थ",
     origin: "Akkalkot, Maharashtra",
+  },
+  // ✅ NEW: Chhatrapati Shivaji Maharaj
+  {
+    img: Art5,
+    name: "Chhatrapati Shivaji Maharaj",
+    deity: "The Great Maratha Warrior",
+    color: "#ffaa33",
+    glowColor: "#ffaa3388",
+    tagline: "The Lion of Maharashtra",
+    description:
+      "Chhatrapati Shivaji Maharaj — the founder of the Maratha Empire and a visionary ruler. Known for his military genius, progressive administration, and deep respect for all faiths. He established 'Hindavi Swarajya' and inspired generations with his courage, justice, and strategic brilliance. This artwork honors his indomitable spirit and legacy.",
+    attributes: ["Courage", "Strategy", "Justice", "Leadership"],
+    mantra: "जय भवानी जय शिवाजी",
+    origin: "Maratha Empire, 17th Century",
   },
 ];
 
@@ -880,35 +927,142 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS */}
       <section id="skills" className="section">
         <HexGrid />
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <SectionHeader title="SKILL.MATRIX" subtitle="Technical Arsenal" />
+
           <div style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
-            gap: "20px",
+            gap: "28px",
             marginTop: "50px",
             alignItems: "start",
           }}>
-            {skillSections.map(({ label, color, items }, si) => (
-              <GlowCard key={label} color={color} style={{ padding: "26px 28px", height: "100%" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
-                  <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: color, boxShadow: `0 0 12px ${color}`, flexShrink: 0 }} />
-                  <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "10px", color, letterSpacing: "2px", lineHeight: 1.4 }}>{label}</h3>
-                  <div style={{ flex: 1, height: "1px", background: `linear-gradient(90deg,${color}66,transparent)`, minWidth: "20px" }} />
+            {skillSections.map(({ label, color, icon, items }, si) => (
+              <GlowCard key={label} color={color} style={{ padding: "32px 28px", height: "100%" }}>
+                {/* Header with Neon Icon - Like Passion Modules */}
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "14px",
+                  marginBottom: "28px",
+                  paddingBottom: "16px",
+                  borderBottom: `1px solid ${color}22`,
+                }}>
+                  <div style={{
+                    width: "56px",
+                    height: "56px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "12px",
+                    background: `${color}08`,
+                    border: `1px solid ${color}44`,
+                    color: color,
+                    boxShadow: `0 0 15px ${color}20`,
+                  }}>
+                    {icon}
+                  </div>
+                  <div>
+                    <h3 style={{
+                      fontFamily: "'Orbitron', monospace",
+                      fontSize: "10px",
+                      color: color,
+                      letterSpacing: "2.5px",
+                      lineHeight: 1.4,
+                      marginBottom: "6px",
+                    }}>{label}</h3>
+                    <div style={{
+                      height: "2px",
+                      background: `linear-gradient(90deg, ${color}88, transparent)`,
+                      width: "40px",
+                    }} />
+                  </div>
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+
+                {/* Skills Tags - Like skill-tag style */}
+                <div style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                }}>
                   {items.map((item, i) => (
-                    <span key={item} className="skill-tag"
-                      style={{ padding: "8px 16px", border: `1px solid ${color}55`, borderRadius: "6px", fontSize: "12px", color, background: `${color}0d`, fontFamily: "'Share Tech Mono', monospace", letterSpacing: "1px", boxShadow: `0 0 8px ${color}22`, animationDelay: `${(si * 10 + i) * 0.06}s`, position: "relative", overflow: "hidden" }}
-                      onMouseEnter={e => { e.currentTarget.style.background = `${color}28`; e.currentTarget.style.boxShadow = `0 0 18px ${color}66`; e.currentTarget.style.borderColor = `${color}99`; }}
-                      onMouseLeave={e => { e.currentTarget.style.background = `${color}0d`; e.currentTarget.style.boxShadow = `0 0 8px ${color}22`; e.currentTarget.style.borderColor = `${color}55`; }}>
-                      <span style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: `linear-gradient(90deg,transparent,${color},transparent)` }} />
+                    <span
+                      key={item}
+                      className="skill-tag"
+                      style={{
+                        padding: "10px 18px",
+                        border: `1px solid ${color}55`,
+                        borderRadius: "8px",
+                        fontSize: "12px",
+                        color: color,
+                        background: `${color}0d`,
+                        fontFamily: "'Share Tech Mono', monospace",
+                        letterSpacing: "1px",
+                        boxShadow: `0 0 8px ${color}22`,
+                        animation: `tag-in 0.4s ease ${(si * 10 + i) * 0.06}s both`,
+                        position: "relative",
+                        overflow: "hidden",
+                        transition: "all 0.25s ease",
+                        cursor: "default",
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.background = `${color}28`;
+                        e.currentTarget.style.boxShadow = `0 0 18px ${color}66`;
+                        e.currentTarget.style.borderColor = `${color}99`;
+                        e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.background = `${color}0d`;
+                        e.currentTarget.style.boxShadow = `0 0 8px ${color}22`;
+                        e.currentTarget.style.borderColor = `${color}55`;
+                        e.currentTarget.style.transform = "translateY(0) scale(1)";
+                      }}
+                    >
+                      <span style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "1px",
+                        background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+                      }} />
                       {item}
                     </span>
                   ))}
+                </div>
+
+                {/* Decorative dots at bottom - like Passion Modules */}
+                <div style={{
+                  marginTop: "24px",
+                  paddingTop: "16px",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  gap: "8px",
+                }}>
+                  <div style={{
+                    width: "6px",
+                    height: "6px",
+                    borderRadius: "50%",
+                    background: color,
+                    opacity: 0.8,
+                    boxShadow: `0 0 8px ${color}`,
+                  }} />
+                  <div style={{
+                    width: "6px",
+                    height: "6px",
+                    borderRadius: "50%",
+                    background: color,
+                    opacity: 0.4,
+                  }} />
+                  <div style={{
+                    width: "6px",
+                    height: "6px",
+                    borderRadius: "50%",
+                    background: color,
+                    opacity: 0.2,
+                  }} />
                 </div>
               </GlowCard>
             ))}
@@ -931,7 +1085,7 @@ export default function Portfolio() {
             letterSpacing: "1px",
             maxWidth: "600px",
           }}>
-            // Three core modules — each crafted with precision, passion, and purpose.
+
           </p>
 
           {/* Service Cards — 2 columns on desktop, 1 on mobile */}
@@ -996,12 +1150,13 @@ export default function Portfolio() {
             fontFamily: "'Share Tech Mono', monospace",
             letterSpacing: "1px",
           }}>
+
           </p>
 
-          {/* Art Cards Grid */}
+          {/* Art Cards Grid - updated to handle 5 items */}
           <div style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)",
+            gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
             gap: isMobile ? "14px" : "20px",
             alignItems: "start",
           }}>
@@ -1019,36 +1174,179 @@ export default function Portfolio() {
         <HexGrid />
         <div style={{ maxWidth: "680px", margin: "0 auto", width: "100%", textAlign: "center" }}>
           <SectionHeader title="ESTABLISH.LINK" subtitle="Open Communication Channel" center />
-          <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginTop: "32px", marginBottom: "24px", flexWrap: "wrap" }}>
-            {socialLinks.map(({ Icon, label, href, color }) => (
-              <a key={label} href={href} title={label} className="social-btn"
-                style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 18px", border: `1px solid ${color}44`, borderRadius: "8px", color, background: `${color}0d`, textDecoration: "none", fontFamily: "'Share Tech Mono', monospace", fontSize: "12px", letterSpacing: "1px", boxShadow: `0 0 10px ${color}22` }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 0 22px ${color}55`; e.currentTarget.style.background = `${color}22`; }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = `0 0 10px ${color}22`; e.currentTarget.style.background = `${color}0d`; }}>
-                <Icon /> {label}
-              </a>
-            ))}
-          </div>
+
           <GlowCard style={{ textAlign: "left" }}>
             <div style={{ display: "grid", gap: "18px" }}>
-              {[{ label: "NAME", placeholder: "Your designation..." }, { label: "EMAIL", placeholder: "Your comm address..." }].map(f => (
-                <div key={f.label}>
-                  <label style={{ fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", display: "block", marginBottom: "8px" }}>{f.label}</label>
-                  <input placeholder={f.placeholder} style={{ width: "100%", padding: "11px 14px", background: "#0a1520", border: "1px solid #1a2a3a", borderRadius: "6px", color: "#c8d8e8", fontSize: "14px", fontFamily: "'Share Tech Mono', monospace", outline: "none", transition: "border-color 0.3s" }}
-                    onFocus={e => e.target.style.borderColor = "#00d4ff44"}
-                    onBlur={e => e.target.style.borderColor = "#1a2a3a"} />
-                </div>
-              ))}
+
+              {/* Name Field */}
               <div>
-                <label style={{ fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", display: "block", marginBottom: "8px" }}>MESSAGE</label>
-                <textarea rows={4} placeholder="Transmit your message..." style={{ width: "100%", padding: "11px 14px", background: "#0a1520", border: "1px solid #1a2a3a", borderRadius: "6px", color: "#c8d8e8", fontSize: "14px", fontFamily: "'Share Tech Mono', monospace", outline: "none", resize: "vertical", transition: "border-color 0.3s" }}
+                <label style={{ fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", display: "block", marginBottom: "8px" }}>
+                  NAME
+                </label>
+                <input
+                  placeholder="Your designation..."
+                  style={{
+                    width: "100%",
+                    padding: "11px 14px",
+                    background: "#0a1520",
+                    border: "1px solid #1a2a3a",
+                    borderRadius: "6px",
+                    color: "#c8d8e8",
+                    fontSize: "14px",
+                    fontFamily: "'Share Tech Mono', monospace",
+                    outline: "none",
+                    transition: "border-color 0.3s"
+                  }}
                   onFocus={e => e.target.style.borderColor = "#00d4ff44"}
-                  onBlur={e => e.target.style.borderColor = "#1a2a3a"} />
+                  onBlur={e => e.target.style.borderColor = "#1a2a3a"}
+                />
               </div>
-              <button style={{ padding: "13px 40px", background: "linear-gradient(90deg,#00d4ff22,#00d4ff11)", border: "1px solid #00d4ff", color: "#00d4ff", fontFamily: "'Orbitron', monospace", fontSize: "12px", letterSpacing: "3px", cursor: "pointer", borderRadius: "6px", textTransform: "uppercase", transition: "all 0.3s", width: "100%" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#00d4ff22"; e.currentTarget.style.boxShadow = "0 0 30px #00d4ff44"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "linear-gradient(90deg,#00d4ff22,#00d4ff11)"; e.currentTarget.style.boxShadow = "none"; }}>
-                TRANSMIT MESSAGE
+
+              {/* Email Field */}
+              <div>
+                <label style={{ fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", display: "block", marginBottom: "8px" }}>
+                  EMAIL
+                </label>
+                <input
+                  placeholder="Your comm address..."
+                  style={{
+                    width: "100%",
+                    padding: "11px 14px",
+                    background: "#0a1520",
+                    border: "1px solid #1a2a3a",
+                    borderRadius: "6px",
+                    color: "#c8d8e8",
+                    fontSize: "14px",
+                    fontFamily: "'Share Tech Mono', monospace",
+                    outline: "none",
+                    transition: "border-color 0.3s"
+                  }}
+                  onFocus={e => e.target.style.borderColor = "#00d4ff44"}
+                  onBlur={e => e.target.style.borderColor = "#1a2a3a"}
+                />
+              </div>
+
+              {/* Message Field */}
+              <div>
+                <label style={{ fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", display: "block", marginBottom: "8px" }}>
+                  MESSAGE
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Transmit your message..."
+                  style={{
+                    width: "100%",
+                    padding: "11px 14px",
+                    background: "#0a1520",
+                    border: "1px solid #1a2a3a",
+                    borderRadius: "6px",
+                    color: "#c8d8e8",
+                    fontSize: "14px",
+                    fontFamily: "'Share Tech Mono', monospace",
+                    outline: "none",
+                    resize: "vertical",
+                    transition: "border-color 0.3s"
+                  }}
+                  onFocus={e => e.target.style.borderColor = "#00d4ff44"}
+                  onBlur={e => e.target.style.borderColor = "#1a2a3a"}
+                />
+              </div>
+
+              {/* Divider with OR text */}
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                margin: "8px 0 4px"
+              }}>
+                <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, #00d4ff33, transparent)" }} />
+                <span style={{ fontSize: "9px", letterSpacing: "2px", color: "#4a6a7a", fontFamily: "'Share Tech Mono', monospace" }}>
+                  CONNECT VIA
+                </span>
+                <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, #00d4ff33, transparent)" }} />
+              </div>
+
+              {/* Social Links - Inside Form (Horizontal Layout) */}
+              <div style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "16px",
+                marginBottom: "8px",
+                flexWrap: "wrap",
+              }}>
+                {socialLinks.map(({ Icon, label, href, color }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    title={label}
+                    className="social-btn"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "10px 20px",
+                      border: `1px solid ${color}44`,
+                      borderRadius: "30px",
+                      color,
+                      background: `${color}0d`,
+                      textDecoration: "none",
+                      fontFamily: "'Share Tech Mono', monospace",
+                      fontSize: "11px",
+                      letterSpacing: "1px",
+                      boxShadow: `0 0 10px ${color}22`,
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.boxShadow = `0 0 20px ${color}66`;
+                      e.currentTarget.style.background = `${color}22`;
+                      e.currentTarget.style.transform = "translateY(-3px)";
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.boxShadow = `0 0 10px ${color}22`;
+                      e.currentTarget.style.background = `${color}0d`;
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}>
+                    <Icon />
+                    <span>{label}</span>
+                  </a>
+                ))}
+              </div>
+
+              {/* Divider before submit */}
+              <div style={{
+                height: "1px",
+                background: "linear-gradient(90deg, transparent, #00d4ff44, transparent)",
+                margin: "8px 0 4px"
+              }} />
+
+              {/* Submit Button */}
+              <button
+                style={{
+                  padding: "13px 40px",
+                  background: "linear-gradient(90deg, #00d4ff22, #00d4ff11)",
+                  border: "1px solid #00d4ff",
+                  color: "#00d4ff",
+                  fontFamily: "'Orbitron', monospace",
+                  fontSize: "12px",
+                  letterSpacing: "3px",
+                  cursor: "pointer",
+                  borderRadius: "6px",
+                  textTransform: "uppercase",
+                  transition: "all 0.3s",
+                  width: "100%",
+                  marginTop: "8px",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "#00d4ff22";
+                  e.currentTarget.style.boxShadow = "0 0 30px #00d4ff44";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "linear-gradient(90deg, #00d4ff22, #00d4ff11)";
+                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}>
+                TRANSMIT MESSAGE →
               </button>
             </div>
           </GlowCard>
@@ -1061,4 +1359,8 @@ export default function Portfolio() {
     </div>
   );
 }
+
+
+
+
 
