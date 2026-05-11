@@ -1,18 +1,10 @@
-
-
-
-
-
-
-
-
 import { useState, useEffect, useRef } from "react";
 import myImg from "./Images/myimg.jpeg";
 import Art1 from "./Images/Art1.webp";
 import Art2 from "./Images/Art2.webp";
 import Art3 from "./Images/Art3.webp";
 import Art4 from "./Images/Art4.webp";
-import Art5 from "./Images/Art5.webp";   // ✅ NEW: Shivaji Maharaj image
+import Art5 from "./Images/Art5.webp";   
 
 const useIsMobile = () => {
   const [mobile, setMobile] = useState(false);
@@ -273,14 +265,9 @@ const InstagramIcon = () => (
     <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
   </svg>
 );
-
-const LinkedInIcon = () => (
+const GitHubIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="4" />
-    <line x1="8" y1="11" x2="8" y2="17" />
-    <line x1="8" y1="8" x2="8.01" y2="8" />
-    <path d="M12 17v-4a3 3 0 0 1 6 0v4" />
-    <line x1="12" y1="11" x2="12" y2="17" />
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
   </svg>
 );
 
@@ -307,9 +294,9 @@ const CloseIcon = () => (
 );
 
 const socialLinks = [
-  { Icon: InstagramIcon, label: "Instagram", href: "#", color: "#bf00ff" },
-  { Icon: LinkedInIcon, label: "LinkedIn", href: "#", color: "#00d4ff" },
-  { Icon: EmailIcon, label: "Email", href: "mailto:#", color: "#00ff88" },
+  { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/harshal_terekar/", color: "#bf00ff" },
+ { Icon: GitHubIcon, label: "GitHub", href: "https://github.com/harshalgitcode", color: "#00ff88" },
+  { Icon: EmailIcon, label: "Email", href: "mailto:#", color:"#f7df1e"  },
 ];
 
 const TypeWriter = ({ texts, speed = 60 }) => {
