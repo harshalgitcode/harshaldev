@@ -4,7 +4,7 @@ import Art1 from "./Images/Art1.webp";
 import Art2 from "./Images/Art2.webp";
 import Art3 from "./Images/Art3.webp";
 import Art4 from "./Images/Art4.webp";
-import Art5 from "./Images/Art5.webp";   
+import Art5 from "./Images/Art5.webp";
 
 const useIsMobile = () => {
   const [mobile, setMobile] = useState(false);
@@ -295,8 +295,8 @@ const CloseIcon = () => (
 
 const socialLinks = [
   { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/harshal_terekar/", color: "#bf00ff" },
- { Icon: GitHubIcon, label: "GitHub", href: "https://github.com/harshalgitcode", color: "#00ff88" },
-  { Icon: EmailIcon, label: "Email", href: "mailto:#", color:"#f7df1e"  },
+  { Icon: GitHubIcon, label: "GitHub", href: "https://github.com/harshalgitcode", color: "#00ff88" },
+  { Icon: EmailIcon, label: "Email", href: "mailto:#", color: "#f7df1e" },
 ];
 
 const TypeWriter = ({ texts, speed = 60 }) => {
