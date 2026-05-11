@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import myImg from "./Images/myimg.jpeg";
+import Art1 from "./Images/Art1.webp";
+import Art2 from "./Images/Art2.webp";
+import Art3 from "./Images/Art3.webp";
+import Art4 from "./Images/Art4.webp";
 
 const useIsMobile = () => {
   const [mobile, setMobile] = useState(false);
@@ -22,6 +26,62 @@ const skillSections = [
     label: "UI TOOLS & SPECIAL ABILITIES",
     color: "#00ff88",
     items: ["Bootstrap", "Material UI", "GitHub", "Postman", "VS Code", "UI/UX Intuition", "Performance Optimization", "Digital Art Creation", "Creative Problem Solving", "Component Architecture"],
+  },
+];
+
+// --- Art Gallery Data ---
+const artworks = [
+  {
+    img: Art1,
+    name: "Jay Hanuman",
+    deity: "Lord Hanuman",
+    color: "#ff6b35",
+    glowColor: "#ff6b3588",
+    tagline: "The Devoted Warrior",
+    description:
+      "Shree Hanuman — the eternal devotee of Shree Ram. Symbol of boundless strength, unwavering loyalty, and pure devotion. He carried mountains, crossed oceans, and burned Lanka — all in the name of love and righteousness. This artwork captures his divine radiance and fearless spirit.",
+    attributes: ["Strength", "Devotion", "Loyalty", "Courage"],
+    mantra: "जय श्री राम",
+    origin: "Ramayana",
+  },
+  {
+    img: Art2,
+    name: "Narasimha Avatar",
+    deity: "Lord Narasimha",
+    color: "#f7df1e",
+    glowColor: "#f7df1e88",
+    tagline: "The Fierce Protector",
+    description:
+      "Shree Narasimha — the half-lion, half-man avatar of Lord Vishnu. Born to protect his devotee Prahlad from the demon king Hiranyakashipu. His roar shook the universe, and his wrath dissolved the darkness. He appears at dusk — neither day nor night — beyond all limits.",
+    attributes: ["Protection", "Justice", "Ferocity", "Grace"],
+    mantra: "ॐ नृसिंहाय नमः",
+    origin: "Bhagavata Purana",
+  },
+  {
+    img: Art3,
+    name: "Shree Krishna",
+    deity: "Lord Krishna",
+    color: "#bf00ff",
+    glowColor: "#bf00ff88",
+    tagline: "The Divine Flutist",
+    description:
+      "Shree Krishna — the supreme personality of Godhead. Philosopher, warrior, friend, and lover of souls. His flute melody calls every heart home. From the battlefields of Kurukshetra where he revealed the Bhagavad Gita, to the banks of Yamuna where he played with Radha — he is infinite love embodied.",
+    attributes: ["Wisdom", "Love", "Playfulness", "Truth"],
+    mantra: "हरे कृष्ण",
+    origin: "Mahabharata & Bhagavad Gita",
+  },
+  {
+    img: Art4,
+    name: "Swami Samarth",
+    deity: "Swami Samarth",
+    color: "#00ff88",
+    glowColor: "#00ff8888",
+    tagline: "The Omnipotent Saint",
+    description:
+      "Shree Swami Samarth of Akkalkot — the living embodiment of Dattatreya. He appeared from the forest of Kardali with no known birth, performed countless miracles, and blessed devotees with fearlessness. His words echoed through time: 'Bhiy Kasha Re.' I am always with you.",
+    attributes: ["Omnipotence", "Compassion", "Fearlessness", "Presence"],
+    mantra: "जय जय स्वामी समर्थ",
+    origin: "Akkalkot, Maharashtra",
   },
 ];
 
@@ -193,6 +253,175 @@ function SectionHeader({ title, subtitle, center }) {
   );
 }
 
+// ---- Art Card Component ----
+function ArtCard({ art, isMobile }) {
+  const [expanded, setExpanded] = useState(false);
+  const c = art.color;
+
+  return (
+    <div
+      onClick={() => setExpanded(e => !e)}
+      style={{
+        position: "relative",
+        borderRadius: "16px",
+        overflow: "hidden",
+        cursor: "pointer",
+        border: `1px solid ${c}33`,
+        boxShadow: expanded ? `0 0 60px ${c}44, 0 0 120px ${c}22` : `0 0 20px ${c}18`,
+        transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
+        background: "#050d18",
+        /* Portrait ratio — 1080:1350 = 4:5 */
+        aspectRatio: expanded ? "auto" : "4/5",
+        minHeight: expanded ? "auto" : undefined,
+      }}
+    >
+      {/* Image */}
+      <div style={{
+        position: expanded ? "relative" : "absolute",
+        inset: expanded ? "auto" : 0,
+        height: expanded ? "260px" : "100%",
+        overflow: "hidden",
+        transition: "height 0.5s ease",
+        flexShrink: 0,
+      }}>
+        <img
+          src={art.img}
+          alt={art.name}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
+            filter: expanded ? "brightness(0.75) saturate(1.2)" : "brightness(0.6) saturate(1.3)",
+            transition: "all 0.5s ease",
+            transform: expanded ? "scale(1)" : "scale(1.04)",
+          }}
+        />
+        {/* Gradient overlay when collapsed */}
+        {!expanded && (
+          <div style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(to top, #050d18 0%, ${c}22 40%, transparent 70%)`,
+          }} />
+        )}
+      </div>
+
+      {/* Collapsed Bottom Label */}
+      {!expanded && (
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: "20px 18px 18px",
+          zIndex: 2,
+        }}>
+          {/* Top accent line */}
+          <div style={{ height: "1px", background: `linear-gradient(90deg, ${c}, transparent)`, marginBottom: "10px" }} />
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "10px", letterSpacing: "3px", color: c, marginBottom: "4px", opacity: 0.8 }}>{art.origin}</div>
+          <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "16px", fontWeight: 900, color: "#e8f4ff", letterSpacing: "1px", marginBottom: "4px" }}>{art.name}</div>
+          <div style={{ fontSize: "11px", color: "#5a7a8a", letterSpacing: "1px" }}>{art.tagline}</div>
+          <div style={{
+            marginTop: "12px",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            color: c,
+            fontFamily: "'Share Tech Mono', monospace",
+            fontSize: "10px",
+            letterSpacing: "2px",
+            animation: "blink 2s infinite",
+          }}>
+            <span>TAP TO EXPLORE</span>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <polyline points="2,1 8,5 2,9" stroke={c} strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </div>
+        </div>
+      )}
+
+      {/* Expanded Detail Panel */}
+      {expanded && (
+        <div style={{
+          background: `linear-gradient(180deg, #050d18 0%, ${c}0a 100%)`,
+          padding: "0",
+          animation: "expandIn 0.4s ease",
+        }}>
+          {/* Header bar */}
+          <div style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            padding: "18px 20px 0",
+            gap: "12px",
+          }}>
+            <div>
+              <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "10px", letterSpacing: "3px", color: c, marginBottom: "4px" }}>{art.origin}</div>
+              <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "18px", fontWeight: 900, color: "#e8f4ff", letterSpacing: "1px" }}>{art.name}</div>
+              <div style={{ fontSize: "12px", color: c, marginTop: "2px", fontStyle: "italic" }}>{art.tagline}</div>
+            </div>
+            {/* Close hint */}
+            <div style={{
+              width: "28px", height: "28px", borderRadius: "50%",
+              border: `1px solid ${c}55`,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: c, fontSize: "14px", flexShrink: 0, marginTop: "2px",
+              background: `${c}11`,
+            }}>✕</div>
+          </div>
+
+          {/* Divider */}
+          <div style={{ margin: "14px 20px", height: "1px", background: `linear-gradient(90deg, ${c}88, transparent)` }} />
+
+          {/* Description */}
+          <p style={{
+            padding: "0 20px",
+            fontSize: "13px",
+            color: "#8aacbc",
+            lineHeight: 1.85,
+          }}>{art.description}</p>
+
+          {/* Attributes */}
+          <div style={{ padding: "14px 20px 0", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+            {art.attributes.map(attr => (
+              <span key={attr} style={{
+                padding: "5px 13px",
+                border: `1px solid ${c}55`,
+                borderRadius: "20px",
+                fontSize: "10px",
+                color: c,
+                fontFamily: "'Share Tech Mono', monospace",
+                letterSpacing: "1px",
+                background: `${c}0d`,
+              }}>{attr}</span>
+            ))}
+          </div>
+
+          {/* Mantra */}
+          <div style={{
+            margin: "16px 20px 20px",
+            padding: "12px 16px",
+            border: `1px solid ${c}33`,
+            borderRadius: "10px",
+            background: `${c}08`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "12px",
+          }}>
+            <div>
+              <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "9px", letterSpacing: "2px", color: "#4a6a7a", marginBottom: "4px" }}>MANTRA</div>
+              <div style={{ fontFamily: "serif", fontSize: "16px", color: c, letterSpacing: "1px" }}>{art.mantra}</div>
+            </div>
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: c, boxShadow: `0 0 12px ${c}`, flexShrink: 0 }} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const isMobile = useIsMobile();
   const [activeSection, setActiveSection] = useState("home");
@@ -226,7 +455,6 @@ export default function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
-  // Close menu on outside click
   useEffect(() => {
     if (!menuOpen) return;
     const handler = (e) => {
@@ -241,7 +469,6 @@ export default function Portfolio() {
     return () => document.removeEventListener("mousedown", handler);
   }, [menuOpen]);
 
-  // Close menu when switching to desktop
   useEffect(() => {
     if (!isMobile) setMenuOpen(false);
   }, [isMobile]);
@@ -265,6 +492,8 @@ export default function Portfolio() {
         @keyframes neon-pulse { 0%,100%{filter:drop-shadow(0 0 3px currentColor)} 50%{filter:drop-shadow(0 0 8px currentColor)} }
         @keyframes tag-in { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
         @keyframes slideDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes expandIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
         * { box-sizing:border-box; margin:0; padding:0; }
         ::-webkit-scrollbar { width:4px; background:#030810; }
         ::-webkit-scrollbar-thumb { background:#00d4ff33; border-radius:2px; }
@@ -281,6 +510,7 @@ export default function Portfolio() {
         .project-card { transition:all 0.3s ease; }
         .project-card:hover { transform:translateY(-4px); }
         #mobile-menu { animation: slideDown 0.25s ease; }
+        .art-card-hover:hover { transform: translateY(-6px); }
       `}</style>
 
       <ScanLine />
@@ -289,7 +519,6 @@ export default function Portfolio() {
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: "0 5%", height: "60px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "linear-gradient(180deg,#030810f0,#030810cc)", backdropFilter: "blur(12px)", borderBottom: "1px solid #00d4ff11" }}>
         <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "16px", color: "#00d4ff", letterSpacing: "3px", flexShrink: 0 }}>HARSHAL.DEV</div>
 
-        {/* Desktop nav */}
         <div style={{ display: isMobile ? "none" : "flex", gap: "4px", alignItems: "center" }}>
           {sections.map(s => (
             <button key={s} onClick={() => scrollTo(s)} className="nav-link" style={{ background: "none", border: "none", cursor: "pointer", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px" }}>
@@ -299,41 +528,19 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Mobile hamburger */}
         <button
           ref={btnRef}
-          id="menu-btn"
           onClick={() => setMenuOpen(o => !o)}
-          style={{
-            display: isMobile ? "flex" : "none",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "none",
-            border: "1px solid #00d4ff44",
-            borderRadius: "6px",
-            padding: "7px 9px",
-            cursor: "pointer",
-            color: "#00d4ff",
-            lineHeight: 0,
-          }}
+          style={{ display: isMobile ? "flex" : "none", alignItems: "center", justifyContent: "center", background: "none", border: "1px solid #00d4ff44", borderRadius: "6px", padding: "7px 9px", cursor: "pointer", color: "#00d4ff", lineHeight: 0 }}
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </nav>
 
-      {/* Mobile dropdown menu */}
       {menuOpen && isMobile && (
-        <div
-          ref={menuRef}
-          id="mobile-menu"
-          style={{ position: "fixed", top: "60px", left: 0, right: 0, zIndex: 999, background: "#030d18f8", backdropFilter: "blur(16px)", borderBottom: "1px solid #00d4ff22", padding: "8px 5% 16px" }}
-        >
+        <div ref={menuRef} id="mobile-menu" style={{ position: "fixed", top: "60px", left: 0, right: 0, zIndex: 999, background: "#030d18f8", backdropFilter: "blur(16px)", borderBottom: "1px solid #00d4ff22", padding: "8px 5% 16px" }}>
           {sections.map(s => (
-            <button
-              key={s}
-              onClick={() => scrollTo(s)}
-              style={{ display: "flex", alignItems: "center", gap: "14px", width: "100%", background: "none", border: "none", borderBottom: "1px solid #00d4ff0d", cursor: "pointer", padding: "13px 0" }}
-            >
+            <button key={s} onClick={() => scrollTo(s)} style={{ display: "flex", alignItems: "center", gap: "14px", width: "100%", background: "none", border: "none", borderBottom: "1px solid #00d4ff0d", cursor: "pointer", padding: "13px 0" }}>
               <div style={{ width: "20px", height: "1px", background: activeSection === s ? "#00d4ff" : "#334", boxShadow: activeSection === s ? "0 0 6px #00d4ff" : "none", flexShrink: 0 }} />
               <span style={{ fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase", color: activeSection === s ? "#00d4ff" : "#7a9aaa", fontFamily: "'Share Tech Mono', monospace" }}>{s}</span>
             </button>
@@ -345,8 +552,6 @@ export default function Portfolio() {
       <section id="home" className="section" style={{ display: "flex", alignItems: "center", paddingTop: "60px", minHeight: "100vh" }}>
         <HexGrid />
         <div style={{ width: "100%", maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "40px", zIndex: 1, flexDirection: isMobile ? "column-reverse" : "row", textAlign: isMobile ? "center" : "left", paddingTop: isMobile ? "20px" : "0" }}>
-
-          {/* Text */}
           <div style={{ maxWidth: isMobile ? "100%" : "580px", animation: "fadeInUp 0.8s ease", flex: 1 }}>
             <div style={{ fontSize: "11px", letterSpacing: "4px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", marginBottom: "16px", display: "flex", alignItems: "center", gap: "12px", justifyContent: isMobile ? "center" : "flex-start" }}>
               <div style={{ width: "40px", height: "1px", background: "#00d4ff", boxShadow: "0 0 6px #00d4ff" }} />
@@ -371,7 +576,6 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Avatar */}
           <div style={{ flexShrink: 0, width: avatarSize, height: avatarSize, animation: "float 6s ease-in-out infinite", position: "relative" }}>
             <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "1px solid #00d4ff22", boxShadow: "0 0 30px #00d4ff15, inset 0 0 30px #00d4ff08" }} />
             <div style={{ position: "absolute", inset: "10px", borderRadius: "50%", border: "1px solid #00d4ff44", animation: "spin-slow 20s linear infinite" }}>
@@ -446,17 +650,23 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS */}
+      {/* SKILLS — side by side */}
       <section id="skills" className="section">
         <HexGrid />
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <SectionHeader title="SKILL.MATRIX" subtitle="Technical Arsenal" />
-          <div style={{ display: "grid", gap: "20px", marginTop: "50px" }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+            gap: "20px",
+            marginTop: "50px",
+            alignItems: "start",
+          }}>
             {skillSections.map(({ label, color, items }, si) => (
-              <GlowCard key={label} color={color} style={{ padding: "26px 28px" }}>
+              <GlowCard key={label} color={color} style={{ padding: "26px 28px", height: "100%" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
                   <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: color, boxShadow: `0 0 12px ${color}`, flexShrink: 0 }} />
-                  <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "11px", color, letterSpacing: "3px" }}>{label}</h3>
+                  <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "10px", color, letterSpacing: "2px", lineHeight: 1.4 }}>{label}</h3>
                   <div style={{ flex: 1, height: "1px", background: `linear-gradient(90deg,${color}66,transparent)`, minWidth: "20px" }} />
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
@@ -481,6 +691,8 @@ export default function Portfolio() {
         <HexGrid />
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <SectionHeader title="PROJECT.LOG" subtitle="Digital Creations" />
+
+          {/* Dev Projects */}
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "20px", marginTop: "50px" }}>
             {projects.map((p, i) => (
               <div key={p.name} className="project-card"
@@ -496,6 +708,35 @@ export default function Portfolio() {
                   <span style={{ fontSize: "10px", color: p.color, border: `1px solid ${p.color}44`, padding: "4px 12px", borderRadius: "4px", fontFamily: "'Share Tech Mono', monospace" }}>VIEW CODE</span>
                   <span style={{ fontSize: "10px", color: "#4a6a7a", border: "1px solid #1a2a3a", padding: "4px 12px", borderRadius: "4px", fontFamily: "'Share Tech Mono', monospace" }}>LIVE DEMO</span>
                 </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Art Gallery Divider */}
+          <div style={{ marginTop: "60px", marginBottom: "36px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, #bf00ff44)" }} />
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#bf00ff", fontFamily: "'Share Tech Mono', monospace", marginBottom: "6px" }}>DIGITAL ART GALLERY</div>
+                <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "clamp(14px, 2.5vw, 22px)", fontWeight: 900, color: "#e8f4ff", letterSpacing: "2px" }}>DIVINE.ARTWORKS</div>
+              </div>
+              <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #bf00ff44, transparent)" }} />
+            </div>
+            <p style={{ textAlign: "center", fontSize: "13px", color: "#4a6a7a", marginTop: "12px", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "1px" }}>
+              TAP ANY CARD TO REVEAL THE STORY WITHIN
+            </p>
+          </div>
+
+          {/* Art Cards Grid */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)",
+            gap: isMobile ? "14px" : "20px",
+            alignItems: "start",
+          }}>
+            {artworks.map((art, i) => (
+              <div key={art.name} style={{ animation: `fadeInUp 0.6s ease ${i * 0.12}s both` }} className="art-card-hover">
+                <ArtCard art={art} isMobile={isMobile} />
               </div>
             ))}
           </div>
@@ -549,4 +790,5 @@ export default function Portfolio() {
     </div>
   );
 }
+
 
