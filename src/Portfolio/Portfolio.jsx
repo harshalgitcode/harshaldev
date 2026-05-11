@@ -25,7 +25,7 @@ const skillSections = [
   {
     label: "UI TOOLS & SPECIAL ABILITIES",
     color: "#00ff88",
-    items: ["Bootstrap", "Material UI", "GitHub", "Postman", "VS Code", "UI/UX Intuition", "Performance Optimization", "Digital Art Creation", "Creative Problem Solving", "Component Architecture"],
+    items: ["Bootstrap", "Material UI", "GitHub", "Postman", "VS Code", "Creative Web Design",  "Digital Art Creation","Auto-Desk Sketch-Book"],
   },
 ];
 
@@ -82,6 +82,93 @@ const artworks = [
     attributes: ["Omnipotence", "Compassion", "Fearlessness", "Presence"],
     mantra: "जय जय स्वामी समर्थ",
     origin: "Akkalkot, Maharashtra",
+  },
+];
+
+// --- Services Data --- (2 services only)
+const services = [
+  {
+    id: "webdev",
+    title: "WEB DEVELOPMENT & DESIGN",
+    subtitle: "Creative Code → Stunning Interfaces",
+    color: "#00d4ff",
+    accentColor: "#bf00ff",
+    icon: (
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+        {/* Monitor frame */}
+        <rect x="4" y="6" width="48" height="34" rx="4" stroke="#00d4ff" strokeWidth="1.5" fill="none" />
+        <line x1="4" y1="16" x2="52" y2="16" stroke="#00d4ff" strokeWidth="1" opacity="0.4" />
+        {/* Traffic dots */}
+        <circle cx="11" cy="11" r="2.2" fill="#ff6b35" />
+        <circle cx="19" cy="11" r="2.2" fill="#f7df1e" />
+        <circle cx="27" cy="11" r="2.2" fill="#00ff88" />
+        {/* Code brackets */}
+        <polyline points="14,26 19,31 14,36" stroke="#00d4ff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <polyline points="30,26 25,31 30,36" stroke="#bf00ff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Center glow dot */}
+        <circle cx="22" cy="31" r="1.5" fill="#00d4ff" opacity="0.7" />
+        {/* Stand */}
+        <line x1="28" y1="40" x2="28" y2="48" stroke="#00d4ff" strokeWidth="1.5" opacity="0.6" />
+        <line x1="20" y1="48" x2="36" y2="48" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        {/* Creative spark lines top right */}
+        <line x1="42" y1="22" x2="46" y2="18" stroke="#bf00ff" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
+        <line x1="44" y1="26" x2="49" y2="26" stroke="#bf00ff" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        <line x1="42" y1="30" x2="46" y2="33" stroke="#bf00ff" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      </svg>
+    ),
+    description: "I don't just write code — I craft visual experiences directly in code. No Figma, no wireframes. From a blank screen I build immersive, animated, and pixel-perfect interfaces using React, Next.js, and CSS magic. Every layout, every color, every animation is born from code — creative and functional at once.",
+    features: [
+      "React & Next.js",
+      "Creative CSS Animations",
+      "Glassmorphism Effects",
+      "Neon & Dark UI Themes",
+      "Redux / React Query",
+      "Responsive & Mobile-First",
+      "TypeScript & ES6+",
+      "Performance Optimized",
+      "Component Architecture",
+      "Custom Micro-interactions",
+    ],
+    tag: "CODE → CREATIVE DESIGN",
+    highlight: "Code is my design tool.",
+  },
+  {
+    id: "digitalart",
+    title: "DIGITAL ART",
+    subtitle: "Character & Concept Design",
+    color: "#ff6b35",
+    accentColor: "#f7df1e",
+    icon: (
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+        {/* Paint strokes / brush path */}
+        <path d="M10 44 Q14 28 22 22 Q30 16 36 22 Q42 28 36 36 Q30 44 26 42 Q22 40 24 36 Q26 32 30 34" stroke="#ff6b35" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Color palette dots */}
+        <circle cx="12" cy="14" r="4.5" fill="#ff6b35" opacity="0.95" />
+        <circle cx="24" cy="8" r="3.5" fill="#bf00ff" opacity="0.95" />
+        <circle cx="36" cy="7" r="4" fill="#00d4ff" opacity="0.95" />
+        <circle cx="46" cy="14" r="3.5" fill="#00ff88" opacity="0.95" />
+        <circle cx="48" cy="26" r="3" fill="#f7df1e" opacity="0.95" />
+        {/* Brush handle */}
+        <line x1="40" y1="38" x2="48" y2="46" stroke="#ff6b35" strokeWidth="2.5" strokeLinecap="round" />
+        <ellipse cx="45.5" cy="43.5" rx="4" ry="2" transform="rotate(45 45.5 43.5)" fill="#ff6b35" opacity="0.6" />
+        {/* Sparkle / star near art */}
+        <line x1="8" y1="30" x2="8" y2="36" stroke="#f7df1e" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+        <line x1="5" y1="33" x2="11" y2="33" stroke="#f7df1e" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+      </svg>
+    ),
+    description: "From divine mythological deities to original character concepts — I create digital art that carries soul. Using AutoDesk Sketchbook as my canvas, each piece is hand-crafted with intention, blending classical artistic sensibility with a modern digital aesthetic. Art that tells a story before a single word is read.",
+    features: [
+      "Character Illustration",
+      "Deity & Mythological Art",
+      "Original Concept Design",
+      "AutoDesk Sketchbook",
+      "Digital Painting",
+      "Light & Shadow Mastery",
+      "Color Theory",
+      "Storytelling Through Art",
+    ],
+    tag: "CREATIVE ART",
+    highlight: "Every stroke tells a story.",
   },
 ];
 
@@ -178,13 +265,6 @@ const socialLinks = [
   { Icon: EmailIcon, label: "Email", href: "mailto:#", color: "#00ff88" },
 ];
 
-const projects = [
-  { name: "NeoUI Dashboard", tech: "React + Redux Toolkit", desc: "Real-time analytics dashboard with glassmorphism design", color: "#00d4ff" },
-  { name: "ArtVault", tech: "Next.js + TypeScript", desc: "Digital art gallery with immersive viewing experience", color: "#bf00ff" },
-  { name: "FormForge", tech: "Formik + Material UI", desc: "Dynamic form builder with drag-and-drop capabilities", color: "#ff6b35" },
-  { name: "QueryHub", tech: "React Query + Bootstrap", desc: "Data fetching hub with smart caching visualization", color: "#00ff88" },
-];
-
 const TypeWriter = ({ texts, speed = 60 }) => {
   const [displayed, setDisplayed] = useState("");
   const [idx, setIdx] = useState(0);
@@ -270,12 +350,10 @@ function ArtCard({ art, isMobile }) {
         boxShadow: expanded ? `0 0 60px ${c}44, 0 0 120px ${c}22` : `0 0 20px ${c}18`,
         transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
         background: "#050d18",
-        /* Portrait ratio — 1080:1350 = 4:5 */
         aspectRatio: expanded ? "auto" : "4/5",
         minHeight: expanded ? "auto" : undefined,
       }}
     >
-      {/* Image */}
       <div style={{
         position: expanded ? "relative" : "absolute",
         inset: expanded ? "auto" : 0,
@@ -297,7 +375,6 @@ function ArtCard({ art, isMobile }) {
             transform: expanded ? "scale(1)" : "scale(1.04)",
           }}
         />
-        {/* Gradient overlay when collapsed */}
         {!expanded && (
           <div style={{
             position: "absolute",
@@ -307,7 +384,6 @@ function ArtCard({ art, isMobile }) {
         )}
       </div>
 
-      {/* Collapsed Bottom Label */}
       {!expanded && (
         <div style={{
           position: "absolute",
@@ -317,7 +393,6 @@ function ArtCard({ art, isMobile }) {
           padding: "20px 18px 18px",
           zIndex: 2,
         }}>
-          {/* Top accent line */}
           <div style={{ height: "1px", background: `linear-gradient(90deg, ${c}, transparent)`, marginBottom: "10px" }} />
           <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "10px", letterSpacing: "3px", color: c, marginBottom: "4px", opacity: 0.8 }}>{art.origin}</div>
           <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "16px", fontWeight: 900, color: "#e8f4ff", letterSpacing: "1px", marginBottom: "4px" }}>{art.name}</div>
@@ -341,14 +416,12 @@ function ArtCard({ art, isMobile }) {
         </div>
       )}
 
-      {/* Expanded Detail Panel */}
       {expanded && (
         <div style={{
           background: `linear-gradient(180deg, #050d18 0%, ${c}0a 100%)`,
           padding: "0",
           animation: "expandIn 0.4s ease",
         }}>
-          {/* Header bar */}
           <div style={{
             display: "flex",
             alignItems: "flex-start",
@@ -361,7 +434,6 @@ function ArtCard({ art, isMobile }) {
               <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "18px", fontWeight: 900, color: "#e8f4ff", letterSpacing: "1px" }}>{art.name}</div>
               <div style={{ fontSize: "12px", color: c, marginTop: "2px", fontStyle: "italic" }}>{art.tagline}</div>
             </div>
-            {/* Close hint */}
             <div style={{
               width: "28px", height: "28px", borderRadius: "50%",
               border: `1px solid ${c}55`,
@@ -371,10 +443,8 @@ function ArtCard({ art, isMobile }) {
             }}>✕</div>
           </div>
 
-          {/* Divider */}
           <div style={{ margin: "14px 20px", height: "1px", background: `linear-gradient(90deg, ${c}88, transparent)` }} />
 
-          {/* Description */}
           <p style={{
             padding: "0 20px",
             fontSize: "13px",
@@ -382,7 +452,6 @@ function ArtCard({ art, isMobile }) {
             lineHeight: 1.85,
           }}>{art.description}</p>
 
-          {/* Attributes */}
           <div style={{ padding: "14px 20px 0", display: "flex", flexWrap: "wrap", gap: "8px" }}>
             {art.attributes.map(attr => (
               <span key={attr} style={{
@@ -398,7 +467,6 @@ function ArtCard({ art, isMobile }) {
             ))}
           </div>
 
-          {/* Mantra */}
           <div style={{
             margin: "16px 20px 20px",
             padding: "12px 16px",
@@ -422,6 +490,159 @@ function ArtCard({ art, isMobile }) {
   );
 }
 
+// ---- Service Card Component (2-card wide layout) ----
+function ServiceCard({ service, isMobile, index }) {
+  const [hovered, setHovered] = useState(false);
+  const c = service.color;
+  const ac = service.accentColor;
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        position: "relative",
+        borderRadius: "20px",
+        padding: isMobile ? "28px 22px" : "44px 44px",
+        border: `1px solid ${hovered ? c + "55" : c + "1a"}`,
+        background: hovered
+          ? `linear-gradient(135deg, ${c}10, ${ac}06, #030810)`
+          : `linear-gradient(135deg, ${c}07, transparent)`,
+        boxShadow: hovered
+          ? `0 0 80px ${c}28, 0 0 160px ${c}10, inset 0 0 60px ${c}06`
+          : `0 0 30px ${c}0a`,
+        transition: "all 0.45s cubic-bezier(0.4,0,0.2,1)",
+        cursor: "default",
+        animation: `fadeInUp 0.7s ease ${index * 0.2}s both`,
+        overflow: "hidden",
+      }}
+    >
+      {/* Dual top accent lines */}
+      <div style={{
+        position: "absolute", top: -1, left: "28px", width: hovered ? "55%" : "40%", height: "2px",
+        background: `linear-gradient(90deg, ${c}, ${ac}88, transparent)`,
+        boxShadow: `0 0 10px ${c}`,
+        transition: "width 0.5s ease",
+      }} />
+
+      {/* Corner brackets */}
+      <div style={{ position: "absolute", top: "20px", right: "20px", width: "32px", height: "32px", borderTop: `1px solid ${c}55`, borderRight: `1px solid ${c}55`, borderRadius: "0 8px 0 0", opacity: hovered ? 1 : 0.3, transition: "opacity 0.3s" }} />
+      <div style={{ position: "absolute", bottom: "20px", left: "20px", width: "32px", height: "32px", borderBottom: `1px solid ${ac}55`, borderLeft: `1px solid ${ac}55`, borderRadius: "0 0 0 8px", opacity: hovered ? 1 : 0.3, transition: "opacity 0.3s" }} />
+
+      {/* Background circuit lines */}
+      <div style={{ position: "absolute", right: "40px", top: "50%", transform: "translateY(-50%)", opacity: hovered ? 0.07 : 0.03, transition: "opacity 0.4s", pointerEvents: "none" }}>
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <circle cx="60" cy="60" r="50" stroke={c} strokeWidth="0.8" />
+          <circle cx="60" cy="60" r="35" stroke={ac} strokeWidth="0.8" />
+          <circle cx="60" cy="60" r="20" stroke={c} strokeWidth="0.8" />
+          <line x1="10" y1="60" x2="110" y2="60" stroke={c} strokeWidth="0.6" />
+          <line x1="60" y1="10" x2="60" y2="110" stroke={c} strokeWidth="0.6" />
+        </svg>
+      </div>
+
+      {/* Top row: Icon + Tag */}
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "28px", gap: "16px" }}>
+        <div style={{
+          filter: hovered ? `drop-shadow(0 0 14px ${c})` : `drop-shadow(0 0 5px ${c}55)`,
+          transition: "filter 0.35s ease",
+          transform: hovered ? "scale(1.1)" : "scale(1)",
+          transformOrigin: "left top",
+          transition: "all 0.35s ease",
+        }}>
+          {service.icon}
+        </div>
+
+        {/* Tag badge */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: "6px",
+          padding: "6px 14px",
+          border: `1px solid ${c}44`,
+          borderRadius: "30px",
+          fontSize: "9px", color: c,
+          fontFamily: "'Share Tech Mono', monospace", letterSpacing: "2px",
+          background: `${c}0d`,
+          flexShrink: 0,
+          boxShadow: hovered ? `0 0 14px ${c}33` : "none",
+          transition: "box-shadow 0.3s",
+        }}>
+          <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: c, boxShadow: `0 0 6px ${c}`, animation: "blink 2s infinite" }} />
+          {service.tag}
+        </div>
+      </div>
+
+      {/* Title */}
+      <h3 style={{
+        fontFamily: "'Orbitron', monospace",
+        fontSize: isMobile ? "18px" : "clamp(18px, 2.2vw, 28px)",
+        fontWeight: 900,
+        color: "#e8f4ff",
+        letterSpacing: "2px",
+        marginBottom: "6px",
+        textShadow: hovered ? `0 0 30px ${c}66` : "none",
+        transition: "text-shadow 0.3s",
+        lineHeight: 1.2,
+      }}>{service.title}</h3>
+
+      <div style={{
+        fontSize: "11px", color: ac,
+        fontFamily: "'Share Tech Mono', monospace", letterSpacing: "1.5px",
+        marginBottom: "20px", opacity: 0.9,
+      }}>{service.subtitle}</div>
+
+      {/* Highlight quote */}
+      <div style={{
+        padding: "10px 16px",
+        borderLeft: `3px solid ${c}`,
+        background: `${c}08`,
+        borderRadius: "0 8px 8px 0",
+        marginBottom: "20px",
+        fontFamily: "'Share Tech Mono', monospace",
+        fontSize: "12px",
+        color: c,
+        letterSpacing: "1px",
+        boxShadow: `inset 0 0 20px ${c}05`,
+        opacity: hovered ? 1 : 0.65,
+        transition: "opacity 0.3s",
+      }}>
+        // {service.highlight}
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: "1px", background: `linear-gradient(90deg, ${c}55, ${ac}33, transparent)`, marginBottom: "20px" }} />
+
+      {/* Description */}
+      <p style={{
+        fontSize: "13.5px", color: "#7a9aaa",
+        lineHeight: 1.9, marginBottom: "28px",
+      }}>{service.description}</p>
+
+      {/* Feature Pills — 2 column grid */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr 1fr" : "1fr 1fr",
+        gap: "8px",
+      }}>
+        {service.features.map((feat, i) => (
+          <div key={feat} style={{
+            display: "flex", alignItems: "center", gap: "8px",
+            padding: "8px 12px",
+            border: `1px solid ${i % 2 === 0 ? c : ac}22`,
+            borderRadius: "8px",
+            fontSize: "11px",
+            color: hovered ? (i % 2 === 0 ? c : ac) : "#4a6a7a",
+            fontFamily: "'Share Tech Mono', monospace",
+            background: hovered ? `${i % 2 === 0 ? c : ac}08` : "transparent",
+            transition: `all 0.2s ease ${i * 0.03}s`,
+          }}>
+            <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: i % 2 === 0 ? c : ac, flexShrink: 0, opacity: hovered ? 1 : 0.4 }} />
+            {feat}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const isMobile = useIsMobile();
   const [activeSection, setActiveSection] = useState("home");
@@ -438,7 +659,16 @@ export default function Portfolio() {
     return () => clearInterval(interval);
   }, []);
 
-  const sections = ["home", "about", "skills", "projects", "contact"];
+  // Updated sections: "projects" → "services", added "artwork"
+  const sections = ["home", "about", "skills", "services", "artwork", "contact"];
+  const navLabels = {
+    home: "HOME",
+    about: "ABOUT",
+    skills: "SKILLS",
+    services: "SERVICES",
+    artwork: "ARTWORK",
+    contact: "CONTACT",
+  };
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -494,6 +724,7 @@ export default function Portfolio() {
         @keyframes slideDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
         @keyframes expandIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
         @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+        @keyframes serviceGlow { 0%,100%{box-shadow:0 0 20px #00d4ff10} 50%{box-shadow:0 0 40px #00d4ff25} }
         * { box-sizing:border-box; margin:0; padding:0; }
         ::-webkit-scrollbar { width:4px; background:#030810; }
         ::-webkit-scrollbar-thumb { background:#00d4ff33; border-radius:2px; }
@@ -507,10 +738,9 @@ export default function Portfolio() {
         .social-btn:hover { transform:translateY(-3px) scale(1.08); }
         .nav-link { transition:all 0.3s ease; }
         .nav-link:hover { color:#00d4ff !important; }
-        .project-card { transition:all 0.3s ease; }
-        .project-card:hover { transform:translateY(-4px); }
         #mobile-menu { animation: slideDown 0.25s ease; }
         .art-card-hover:hover { transform: translateY(-6px); }
+        .art-card-hover { transition: transform 0.3s ease; }
       `}</style>
 
       <ScanLine />
@@ -523,7 +753,7 @@ export default function Portfolio() {
           {sections.map(s => (
             <button key={s} onClick={() => scrollTo(s)} className="nav-link" style={{ background: "none", border: "none", cursor: "pointer", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px" }}>
               <div style={{ width: activeSection === s ? "20px" : "6px", height: "2px", background: activeSection === s ? "#00d4ff" : "#334", transition: "all 0.3s", boxShadow: activeSection === s ? "0 0 8px #00d4ff" : "none" }} />
-              <span style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: activeSection === s ? "#00d4ff" : "#556", fontFamily: "'Share Tech Mono', monospace", transition: "color 0.3s" }}>{s}</span>
+              <span style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: activeSection === s ? "#00d4ff" : "#556", fontFamily: "'Share Tech Mono', monospace", transition: "color 0.3s" }}>{navLabels[s]}</span>
             </button>
           ))}
         </div>
@@ -542,7 +772,7 @@ export default function Portfolio() {
           {sections.map(s => (
             <button key={s} onClick={() => scrollTo(s)} style={{ display: "flex", alignItems: "center", gap: "14px", width: "100%", background: "none", border: "none", borderBottom: "1px solid #00d4ff0d", cursor: "pointer", padding: "13px 0" }}>
               <div style={{ width: "20px", height: "1px", background: activeSection === s ? "#00d4ff" : "#334", boxShadow: activeSection === s ? "0 0 6px #00d4ff" : "none", flexShrink: 0 }} />
-              <span style={{ fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase", color: activeSection === s ? "#00d4ff" : "#7a9aaa", fontFamily: "'Share Tech Mono', monospace" }}>{s}</span>
+              <span style={{ fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase", color: activeSection === s ? "#00d4ff" : "#7a9aaa", fontFamily: "'Share Tech Mono', monospace" }}>{navLabels[s]}</span>
             </button>
           ))}
         </div>
@@ -567,9 +797,9 @@ export default function Portfolio() {
               Blending code and creativity to build immersive digital experiences. Passionate about where technology meets art.
             </p>
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: isMobile ? "center" : "flex-start" }}>
-              <button onClick={() => scrollTo("projects")} style={{ padding: "12px 28px", background: "transparent", border: "1px solid #00d4ff", color: "#00d4ff", fontFamily: "'Orbitron', monospace", fontSize: "11px", letterSpacing: "2px", cursor: "pointer", borderRadius: "4px", textTransform: "uppercase", transition: "all 0.3s ease" }}
+              <button onClick={() => scrollTo("services")} style={{ padding: "12px 28px", background: "transparent", border: "1px solid #00d4ff", color: "#00d4ff", fontFamily: "'Orbitron', monospace", fontSize: "11px", letterSpacing: "2px", cursor: "pointer", borderRadius: "4px", textTransform: "uppercase", transition: "all 0.3s ease" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#00d4ff22"; e.currentTarget.style.boxShadow = "0 0 20px #00d4ff44"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.boxShadow = "none"; }}>VIEW WORK</button>
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.boxShadow = "none"; }}>VIEW SERVICES</button>
               <button onClick={() => scrollTo("contact")} style={{ padding: "12px 28px", background: "#00d4ff", border: "1px solid #00d4ff", color: "#030810", fontFamily: "'Orbitron', monospace", fontSize: "11px", letterSpacing: "2px", cursor: "pointer", borderRadius: "4px", textTransform: "uppercase", fontWeight: 700, transition: "all 0.3s ease" }}
                 onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 0 30px #00d4ff77"; }}
                 onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; }}>CONTACT</button>
@@ -650,7 +880,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS — side by side */}
+      {/* SKILLS */}
       <section id="skills" className="section">
         <HexGrid />
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -686,46 +916,87 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <section id="projects" className="section">
+      {/* SERVICES */}
+      <section id="services" className="section">
         <HexGrid />
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <SectionHeader title="PROJECT.LOG" subtitle="Digital Creations" />
+          <SectionHeader title="SERVICES.EXE" subtitle="What I Offer" />
 
-          {/* Dev Projects */}
-          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "20px", marginTop: "50px" }}>
-            {projects.map((p, i) => (
-              <div key={p.name} className="project-card"
-                style={{ border: `1px solid ${p.color}22`, borderRadius: "12px", padding: "24px", position: "relative", overflow: "hidden", background: `linear-gradient(135deg,${p.color}06,transparent)`, animation: `fadeInUp 0.6s ease ${i * 0.15}s both`, cursor: "pointer" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = `${p.color}55`; e.currentTarget.style.boxShadow = `0 0 40px ${p.color}25`; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = `${p.color}22`; e.currentTarget.style.boxShadow = "none"; }}>
-                <div style={{ position: "absolute", top: -1, left: "20px", right: "60%", height: "1px", background: `linear-gradient(90deg,${p.color},transparent)` }} />
-                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: p.color, boxShadow: `0 0 12px ${p.color}`, marginBottom: "14px" }} />
-                <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "15px", color: "#e8f4ff", marginBottom: "8px", letterSpacing: "1px" }}>{p.name}</h3>
-                <div style={{ fontSize: "10px", color: p.color, letterSpacing: "2px", fontFamily: "'Share Tech Mono', monospace", marginBottom: "12px", textTransform: "uppercase" }}>{p.tech}</div>
-                <p style={{ fontSize: "13px", color: "#5a7a8a", lineHeight: 1.7 }}>{p.desc}</p>
-                <div style={{ marginTop: "18px", display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                  <span style={{ fontSize: "10px", color: p.color, border: `1px solid ${p.color}44`, padding: "4px 12px", borderRadius: "4px", fontFamily: "'Share Tech Mono', monospace" }}>VIEW CODE</span>
-                  <span style={{ fontSize: "10px", color: "#4a6a7a", border: "1px solid #1a2a3a", padding: "4px 12px", borderRadius: "4px", fontFamily: "'Share Tech Mono', monospace" }}>LIVE DEMO</span>
-                </div>
-              </div>
+          {/* Intro line */}
+          <p style={{
+            marginTop: "20px",
+            fontSize: "14px",
+            color: "#4a6a7a",
+            fontFamily: "'Share Tech Mono', monospace",
+            letterSpacing: "1px",
+            maxWidth: "600px",
+          }}>
+            // Three core modules — each crafted with precision, passion, and purpose.
+          </p>
+
+          {/* Service Cards — 2 columns on desktop, 1 on mobile */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: "28px",
+            marginTop: "50px",
+            alignItems: "stretch",
+          }}>
+            {services.map((service, i) => (
+              <ServiceCard key={service.id} service={service} isMobile={isMobile} index={i} />
             ))}
           </div>
 
-          {/* Art Gallery Divider */}
-          <div style={{ marginTop: "60px", marginBottom: "36px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-              <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, #bf00ff44)" }} />
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#bf00ff", fontFamily: "'Share Tech Mono', monospace", marginBottom: "6px" }}>DIGITAL ART GALLERY</div>
-                <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "clamp(14px, 2.5vw, 22px)", fontWeight: 900, color: "#e8f4ff", letterSpacing: "2px" }}>DIVINE.ARTWORKS</div>
-              </div>
-              <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #bf00ff44, transparent)" }} />
+          {/* Bottom CTA */}
+          <div style={{
+            marginTop: "50px",
+            padding: "32px",
+            border: "1px solid #00d4ff22",
+            borderRadius: "12px",
+            background: "linear-gradient(135deg, #00d4ff06, transparent)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "20px",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+            <div style={{ position: "absolute", top: -1, left: "30px", right: "40%", height: "1px", background: "linear-gradient(90deg, #00d4ff, transparent)" }} />
+            <div>
+              <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "10px", letterSpacing: "3px", color: "#00d4ff88", marginBottom: "8px" }}>READY TO BUILD SOMETHING?</div>
+              <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "clamp(14px, 2vw, 20px)", fontWeight: 900, color: "#e8f4ff" }}>LET'S COLLABORATE</div>
+              <p style={{ fontSize: "13px", color: "#4a6a7a", marginTop: "6px", fontFamily: "'Share Tech Mono', monospace" }}>
+                Open for freelance projects & creative collaborations.
+              </p>
             </div>
-            <p style={{ textAlign: "center", fontSize: "13px", color: "#4a6a7a", marginTop: "12px", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "1px" }}>
-              TAP ANY CARD TO REVEAL THE STORY WITHIN
-            </p>
+            <button
+              onClick={() => scrollTo("contact")}
+              style={{ padding: "13px 32px", background: "transparent", border: "1px solid #00d4ff", color: "#00d4ff", fontFamily: "'Orbitron', monospace", fontSize: "11px", letterSpacing: "3px", cursor: "pointer", borderRadius: "6px", textTransform: "uppercase", transition: "all 0.3s ease", flexShrink: 0 }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#00d4ff22"; e.currentTarget.style.boxShadow = "0 0 30px #00d4ff44"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.boxShadow = "none"; }}
+            >
+              GET IN TOUCH →
+            </button>
           </div>
+        </div>
+      </section>
+
+      {/* ARTWORK */}
+      <section id="artwork" className="section">
+        <HexGrid />
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <SectionHeader title="DIVINE.ARTWORKS" subtitle="Digital Art Gallery" />
+
+          <p style={{
+            marginTop: "16px",
+            marginBottom: "40px",
+            fontSize: "13px",
+            color: "#4a6a7a",
+            fontFamily: "'Share Tech Mono', monospace",
+            letterSpacing: "1px",
+          }}>
+          </p>
 
           {/* Art Cards Grid */}
           <div style={{
@@ -790,5 +1061,4 @@ export default function Portfolio() {
     </div>
   );
 }
-
 
