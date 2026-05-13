@@ -127,7 +127,7 @@ export default function About({ isMobile }) {
            <GlowCard>
   <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "13px", color: "#00d4ff", letterSpacing: "2px", marginBottom: "16px" }}>SYSTEM PROFILE</h3>
   <p style={{ fontSize: "14px", color: "#7a9aaa", lineHeight: 1.9, marginBottom: "14px" }}>
-    Hi, I'm <span style={{ color: "#00d4ff" }}>Harshal</span> — a frontend developer with <span style={{ color: "#00d4ff", fontWeight: "bold" }}>2+ years of experience</span> in web development, creating interfaces that feel alive. I believe code is just another form of art.
+    Hi, I'm <span style={{ color: "#00d4ff" }}>Harshal</span> — a frontend developer with 2+ years of experience in web development, creating interfaces that feel alive. I believe code is just another form of art.
   </p>
   <p style={{ fontSize: "14px", color: "#7a9aaa", lineHeight: 1.9 }}>
     When I'm not pushing pixels, I'm creating digital art, exploring generative design, and finding the intersection of technology and human creativity.
