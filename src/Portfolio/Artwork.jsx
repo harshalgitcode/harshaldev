@@ -55,7 +55,7 @@ const artworks = [
     glowColor: "#00ff8888",
     tagline: "The Omnipotent Saint",
     description:
-      "Shree Swami Samarth of Akkalkot — the living embodiment of Dattatreya. He appeared from the forest of Kardali with no known birth, performed countless miracles, and blessed devotees with fearlessness. His words echoed through time: 'Bhiy Kasha Re.' I am always with you.",
+      "Shree Swami Samarth of Akkalkot — the living embodiment of Dattatreya. He appeared from the forest of Kardali with no known birth, performed countless miracles, and blessed devotees with fearlessness. His words echoed through time: 'Bhiu Nakos Mi Tujhya Pathishi Aahe.' I am always with you.",
     attributes: ["Omnipotence", "Compassion", "Fearlessness", "Presence"],
     mantra: "जय जय स्वामी समर्थ",
     origin: "Akkalkot, Maharashtra",
