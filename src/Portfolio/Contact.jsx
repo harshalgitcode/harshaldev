@@ -211,7 +211,7 @@ export default function Contact() {
                 <SuccessIcon />
                 <div>
                   <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "11px", color: "#00ff88", letterSpacing: "1.5px", marginBottom: "2px" }}>TRANSMISSION COMPLETE</div>
-                  <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "11px", color: "#00ff8888" }}>Message successfully sent! Reply aayega jald hi.</div>
+                  <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "11px", color: "#00ff8888" }}>Message successfully sent! You’ll receive a reply soon.</div>
                 </div>
               </div>
             )}
