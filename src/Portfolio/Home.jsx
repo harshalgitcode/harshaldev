@@ -56,7 +56,7 @@ export default function Home({ isMobile, glitch, scrollTo }) {
         <div style={{ maxWidth: isMobile ? "100%" : "580px", animation: "fadeInUp 0.8s ease", flex: 1 }}>
           <div style={{ fontSize: "11px", letterSpacing: "4px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", marginBottom: "16px", display: "flex", alignItems: "center", gap: "12px", justifyContent: isMobile ? "center" : "flex-start" }}>
             <div style={{ width: "40px", height: "1px", background: "#00d4ff", boxShadow: "0 0 6px #00d4ff" }} />
-            CODE + ART + CRETIVITY
+            CODE + ART + CREATIVITY
           </div>
           <h1 className={glitch ? "glitch-active" : ""} style={{ fontFamily: "'Orbitron', monospace", fontSize: "clamp(30px,5vw,64px)", fontWeight: 900, lineHeight: 1.1, marginBottom: "12px", color: "#e8f4ff", animation: "glow-text 3s ease-in-out infinite" }}>
             CREATIVE<br /><span style={{ color: "#00d4ff" }}>DEVELOPER</span>

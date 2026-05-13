@@ -40,7 +40,7 @@ const combinedService = {
       </svg>
     ),
   ],
-  tag: "CODE + ART + CRETIVITY",
+  tag: "CODE + ART + CREATIVITY",
   highlight: "Where clean code meets creative vision.",
   description:
     "I don’t just write code — I craft visual experiences born directly from imagination. From a blank canvas, I build immersive, animated, pixel-perfect web interfaces using React, Next.js, and CSS sorcery. And beyond the browser — I create original digital art, cyberpunk mascots, mythological deities, brand characters, and concept illustrations. Every website I build carries that same artistic eye — making brands feel alive, memorable, and uniquely theirs.",
