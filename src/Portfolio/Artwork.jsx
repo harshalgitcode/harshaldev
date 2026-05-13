@@ -1,5 +1,4 @@
 
-
 import { useState } from "react";
 import Art1 from "./Images/Art1.webp";
 import Art2 from "./Images/Art2.webp";
