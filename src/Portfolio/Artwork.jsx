@@ -18,7 +18,7 @@ const artworks = [
     description:
       "Shree Hanuman — the eternal devotee of Shree Ram. Symbol of boundless strength, unwavering loyalty, and pure devotion. He carried mountains, crossed oceans, and burned Lanka — all in the name of love and righteousness. This artwork captures his divine radiance and fearless spirit.",
     attributes: ["Strength", "Devotion", "Loyalty", "Courage"],
-    mantra: "जय श्री राम",
+    mantra: "“ॐ हनुमते नमः",
     origin: "Ramayana",
   },
   {
