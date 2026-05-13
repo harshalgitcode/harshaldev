@@ -151,7 +151,7 @@ export default function Contact() {
     <section id="contact" className="section" style={{ display: "flex", alignItems: "center" }}>
       <HexGrid />
       <div style={{ maxWidth: "680px", margin: "0 auto", width: "100%", textAlign: "center" }}>
-        <SectionHeader title="ESTABLISH.LINK" subtitle="Open Communication Channel" center />
+        <SectionHeader title="ESTABLISH.LINK" subtitle="CONNECT WITH ME" center />
 
         <GlowCard style={{ textAlign: "left" }}>
           <div style={{ display: "grid", gap: "18px" }}>
@@ -163,7 +163,7 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your designation..."
+                placeholder="Your name..."
                 disabled={isLoading}
                 style={{ ...inputStyle, opacity: isLoading ? 0.6 : 1 }}
                 onFocus={e => e.target.style.borderColor = "#00d4ff44"}
@@ -178,7 +178,7 @@ export default function Contact() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your comm address..."
+                placeholder="Your address..."
                 disabled={isLoading}
                 style={{ ...inputStyle, opacity: isLoading ? 0.6 : 1 }}
                 onFocus={e => e.target.style.borderColor = "#00d4ff44"}
