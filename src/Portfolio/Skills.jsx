@@ -12,7 +12,7 @@ const skillSections = [
       </svg>
     ),
     items: [
-      "HTML5", "CSS3", "JavaScript", "TypeScript", "ES6+",
+      "HTML5", "CSS3", "JavaScript","Bootstrap", "Material UI",  "TypeScript", "ES6+",
       "React JS", "Next.js", "Redux Toolkit", "React Query", "Formik"
     ]
   },
@@ -28,7 +28,7 @@ const skillSections = [
       </svg>
     ),
     items: [
-      "Bootstrap", "Material UI", "GitHub", "Postman",
+       "GitHub", "Postman","vercel",
       "VS Code", "Creative Web Design", "Digital Art Creation", "Auto-Desk Sketch-Book"
     ]
   },

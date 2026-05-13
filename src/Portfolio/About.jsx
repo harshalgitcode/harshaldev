@@ -10,17 +10,11 @@ const GitHubIcon = () => (
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
   </svg>
 );
-const EmailIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="4" width="20" height="16" rx="3" />
-    <polyline points="2,4 12,14 22,4" />
-  </svg>
-);
+
 
 const socialLinks = [
   { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/harshal_terekar/", color: "#bf00ff" },
   { Icon: GitHubIcon, label: "GitHub", href: "https://github.com/harshalgitcode", color: "#00ff88" },
-  { Icon: EmailIcon, label: "Email", href: "mailto:#", color: "#f7df1e" },
 ];
 
 const NeonPaletteIcon = ({ color }) => (
@@ -111,7 +105,7 @@ export default function About({ isMobile }) {
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <SectionHeader title="ABOUT.ME" subtitle="Personal Profile" />
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "28px", marginTop: "50px" }}>
-          <GlowCard>
+          {/* <GlowCard>
             <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "13px", color: "#00d4ff", letterSpacing: "2px", marginBottom: "16px" }}>SYSTEM PROFILE</h3>
             <p style={{ fontSize: "14px", color: "#7a9aaa", lineHeight: 1.9, marginBottom: "14px" }}>
               Hi, I'm <span style={{ color: "#00d4ff" }}>Harshal</span> — a frontend developer with a deep passion for creating interfaces that feel alive. I believe code is just another form of art.
@@ -129,7 +123,26 @@ export default function About({ isMobile }) {
                 ))}
               </div>
             </div>
-          </GlowCard>
+          </GlowCard> */}
+           <GlowCard>
+  <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "13px", color: "#00d4ff", letterSpacing: "2px", marginBottom: "16px" }}>SYSTEM PROFILE</h3>
+  <p style={{ fontSize: "14px", color: "#7a9aaa", lineHeight: 1.9, marginBottom: "14px" }}>
+    Hi, I'm <span style={{ color: "#00d4ff" }}>Harshal</span> — a frontend developer with <span style={{ color: "#00d4ff", fontWeight: "bold" }}>2+ years of experience</span> in web development, creating interfaces that feel alive. I believe code is just another form of art.
+  </p>
+  <p style={{ fontSize: "14px", color: "#7a9aaa", lineHeight: 1.9 }}>
+    When I'm not pushing pixels, I'm creating digital art, exploring generative design, and finding the intersection of technology and human creativity.
+  </p>
+  <div style={{ marginTop: "24px", paddingTop: "18px", borderTop: "1px solid #00d4ff15" }}>
+    <div style={{ fontSize: "11px", letterSpacing: "2px", color: "#00d4ff66", fontFamily: "'Share Tech Mono', monospace", marginBottom: "12px" }}>CONNECT WITH ME</div>
+    <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+      {socialLinks.map(({ Icon, label, href, color }) => (
+        <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={label} className="social-btn" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "42px", height: "42px", borderRadius: "10px", border: `1px solid ${color}44`, color, background: `${color}0d`, textDecoration: "none", boxShadow: `0 0 10px ${color}22` }}>
+          <Icon />
+        </a>
+      ))}
+    </div>
+  </div>
+</GlowCard>
 
           <GlowCard color="#bf00ff">
             <h3 style={{ fontFamily: "'Orbitron', monospace", fontSize: "13px", color: "#bf00ff", letterSpacing: "2px", marginBottom: "18px" }}>PASSION MODULES</h3>

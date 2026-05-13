@@ -3,7 +3,7 @@ import { useState } from "react";
 const combinedService = {
   id: "creative",
   title: "CREATIVE WEB DEVELOPER",
-  subtitle: "Code × Art → Immersive Digital Experiences",
+  subtitle: "Code + Art → Immersive Digital Experiences",
   subtitleColor: "#ff6b35",
   color: "#00d4ff",
   accentColor: "#bf00ff",
@@ -43,7 +43,7 @@ const combinedService = {
   tag: "CODE + ART + CRETIVITY",
   highlight: "Where clean code meets creative vision.",
   description:
-    "I don't just write code — I craft visual experiences born directly from imagination. No Figma, no wireframes. From a blank canvas I build immersive, animated, pixel-perfect web interfaces using React, Next.js, and CSS sorcery. And beyond the browser — I create original digital art: cyberpunk mascots, mythological deities, brand characters, and concept illustrations using AutoDesk Sketchbook. Every website I build carries that same artistic eye — making brands feel alive, memorable, and uniquely theirs.",
+    "I don’t just write code — I craft visual experiences born directly from imagination. From a blank canvas, I build immersive, animated, pixel-perfect web interfaces using React, Next.js, and CSS sorcery. And beyond the browser — I create original digital art, cyberpunk mascots, mythological deities, brand characters, and concept illustrations. Every website I build carries that same artistic eye — making brands feel alive, memorable, and uniquely theirs.",
   featureGroups: [
     {
       heading: "WEB DEVELOPMENT",
@@ -60,8 +60,8 @@ const combinedService = {
         </svg>
       ),
       items: [
-        "React & Next.js", "Creative CSS Animations", "Glassmorphism Effects",
-        "Neon & Dark UI Themes", "Redux / React Query", "Responsive & Mobile-First",
+        "Web Develoment","React & Next.js", "Creative CSS Animations", "Glassmorphism Effects",
+        "Neon & Dark UI Themes", "Redux Toolkit / React Query", "Responsive & Mobile-First",
         "TypeScript & ES6+", "Performance Optimized", "Component Architecture", "Custom Micro-interactions",
       ],
     },
@@ -80,7 +80,7 @@ const combinedService = {
       items: [
         "Character Illustration", "Cyberpunk & Mascot Design", "Deity & Mythological Art",
         "Website Mascot / Avatar", "Brand Visual Identity", "AutoDesk Sketchbook",
-        "Light & Shadow Mastery", "Concept & Branding Art",
+        "Concept & Branding Art",
       ],
     },
   ],
