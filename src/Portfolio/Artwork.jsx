@@ -1,8 +1,3 @@
-
-
-
-
-
 import { useState } from "react";
 import Art1 from "./Images/Art1.webp";
 import Art2 from "./Images/Art2.webp";
@@ -21,7 +16,7 @@ const artworks = [
     description:
       "Shree Hanuman — the eternal devotee of Shree Ram. Symbol of boundless strength, unwavering loyalty, and pure devotion. He carried mountains, crossed oceans, and burned Lanka — all in the name of love and righteousness. This artwork captures his divine radiance and fearless spirit.",
     attributes: ["Strength", "Devotion", "Loyalty", "Courage"],
-    mantra: "“ॐ हनुमते नमः",
+    mantra: "ॐ हनुमते नमः",
     origin: "Ramayana",
   },
   {
@@ -90,19 +85,6 @@ const HexGrid = () => (
     </svg>
   </div>
 );
-
-function SectionHeader({ title, subtitle }) {
-  return (
-    <div>
-      <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "11px", letterSpacing: "3px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", marginBottom: "12px" }}>
-        <div style={{ width: "30px", height: "1px", background: "#00d4ff" }} />
-        {subtitle.toUpperCase()}
-      </div>
-      <h2 style={{ fontFamily: "'Orbitron', monospace", fontSize: "clamp(24px, 5vw, 48px)", fontWeight: 900, color: "#e8f4ff", letterSpacing: "2px", textShadow: "0 0 40px #00d4ff33" }}>{title}</h2>
-      <div style={{ width: "60px", height: "2px", background: "linear-gradient(90deg, #00d4ff, transparent)", margin: "16px 0 0", boxShadow: "0 0 10px #00d4ff" }} />
-    </div>
-  );
-}
 
 function ArtCard({ art, isMobile }) {
   const [expanded, setExpanded] = useState(false);
@@ -176,14 +158,69 @@ export default function Artwork({ isMobile }) {
   return (
     <section id="artwork" className="section">
       <HexGrid />
+
+      {/* Scoped heading animations only */}
+      <style>{`
+        @keyframes artwork-title-glow {
+          0%,100% { filter: drop-shadow(0 0 20px #00d4ff44); }
+          50%      { filter: drop-shadow(0 0 40px #00d4ffaa); }
+        }
+        @keyframes artwork-bar-shimmer {
+          0%,100% { opacity: 0.6; }
+          50%      { opacity: 1; }
+        }
+      `}</style>
+
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <SectionHeader title="DIVINE.ARTWORKS" subtitle="Digital Art Gallery" />
+
+        {/* ── NEW HEADING ── */}
+        <div style={{ marginBottom: "50px" }}>
+
+          {/* Subtitle line */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "12px",
+            fontSize: "11px", letterSpacing: "3px", color: "#00d4ff",
+            fontFamily: "'Share Tech Mono', monospace", marginBottom: "14px",
+          }}>
+            <div style={{ width: "30px", height: "1px", background: "linear-gradient(90deg, transparent, #00d4ff)", boxShadow: "0 0 8px #00d4ff" }} />
+            DIGITAL ART GALLERY
+          </div>
+
+          {/* Main title */}
+          <h2 style={{
+            fontFamily: "'Orbitron', monospace",
+            fontSize: "clamp(26px, 5vw, 52px)",
+            fontWeight: 900,
+            letterSpacing: "4px",
+            margin: 0,
+            background: "linear-gradient(135deg, #e8f4ff 0%, #00d4ff 45%, #bf00ff 80%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            animation: "artwork-title-glow 4s ease-in-out infinite",
+          }}>
+            DIVINE.ARTWORKS
+          </h2>
+
+          {/* Animated underbar dots */}
+          <div style={{ display: "flex", gap: "6px", marginTop: "16px" }}>
+            <div style={{
+              width: "60px", height: "2px", borderRadius: "2px",
+              background: "linear-gradient(90deg, #00d4ff, #bf00ff)",
+              boxShadow: "0 0 12px #00d4ff, 0 0 24px #bf00ff44",
+              animation: "artwork-bar-shimmer 3s ease-in-out infinite",
+            }} />
+            <div style={{ width: "10px", height: "2px", borderRadius: "2px", background: "#00d4ff44" }} />
+            <div style={{ width: "6px", height: "2px", borderRadius: "2px", background: "#00d4ff22" }} />
+          </div>
+        </div>
+
+        {/* ── ORIGINAL GRID — unchanged ── */}
         <div style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
           gap: isMobile ? "14px" : "20px",
           alignItems: "start",
-          marginTop: "50px",
         }}>
           {artworks.map((art, i) => (
             <div key={art.name} style={{ animation: `fadeInUp 0.6s ease ${i * 0.12}s both` }} className="art-card-hover">
@@ -191,7 +228,9 @@ export default function Artwork({ isMobile }) {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
 }
+

@@ -1,12 +1,10 @@
-
-
-import { useState, useRef } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 // ─── APNI EMAILJS DETAILS YAHAN BHARO ───────────────
-const EMAILJS_SERVICE_ID = "service_g4hlvge";     // EmailJS dashboard > Email Services
-const EMAILJS_TEMPLATE_ID = "template_4mdjvkr";   // EmailJS dashboard > Email Templates
-const EMAILJS_PUBLIC_KEY = "rkLg4SROtft2hSXYY";      // EmailJS dashboard > Account > Public Key
+const EMAILJS_SERVICE_ID = "service_g4hlvge";
+const EMAILJS_TEMPLATE_ID = "template_4mdjvkr";
+const EMAILJS_PUBLIC_KEY = "rkLg4SROtft2hSXYY";
 // ────────────────────────────────────────────────────
 
 const InstagramIcon = () => (
@@ -21,7 +19,6 @@ const GitHubIcon = () => (
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
   </svg>
 );
-
 
 const socialLinks = [
   { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/harshal_terekar/", color: "#bf00ff" },
@@ -48,20 +45,6 @@ const GlowCard = ({ children, color = "#00d4ff", style = {} }) => (
   </div>
 );
 
-function SectionHeader({ title, subtitle, center }) {
-  return (
-    <div style={{ textAlign: center ? "center" : "left" }}>
-      <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "11px", letterSpacing: "3px", color: "#00d4ff", fontFamily: "'Share Tech Mono', monospace", marginBottom: "12px" }}>
-        {center && <div style={{ width: "30px", height: "1px", background: "#00d4ff" }} />}
-        {subtitle.toUpperCase()}
-        {center && <div style={{ width: "30px", height: "1px", background: "#00d4ff" }} />}
-      </div>
-      <h2 style={{ fontFamily: "'Orbitron', monospace", fontSize: "clamp(24px, 5vw, 48px)", fontWeight: 900, color: "#e8f4ff", letterSpacing: "2px", textShadow: "0 0 40px #00d4ff33" }}>{title}</h2>
-      <div style={{ width: center ? "120px" : "60px", height: "2px", background: "linear-gradient(90deg, #00d4ff, transparent)", margin: center ? "16px auto 0" : "16px 0 0", boxShadow: "0 0 10px #00d4ff" }} />
-    </div>
-  );
-}
-
 const SuccessIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20,6 9,17 4,12" />
@@ -81,7 +64,7 @@ const LoadingSpinner = () => (
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
@@ -90,8 +73,6 @@ export default function Contact() {
 
   const handleSubmit = async () => {
     const { name, email, message } = formData;
-
-    // Validation
     if (!name.trim() || !email.trim() || !message.trim()) {
       setStatus("error");
       setErrorMsg("All fields are required..");
@@ -104,19 +85,12 @@ export default function Contact() {
       setTimeout(() => setStatus("idle"), 3500);
       return;
     }
-
     setStatus("loading");
-
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        {
-          from_name: name,
-          from_email: email,
-          message: message,
-          reply_to: email,
-        },
+        { from_name: name, from_email: email, message, reply_to: email },
         EMAILJS_PUBLIC_KEY
       );
       setStatus("success");
@@ -148,9 +122,65 @@ export default function Contact() {
   return (
     <section id="contact" className="section" style={{ display: "flex", alignItems: "center" }}>
       <HexGrid />
-      <div style={{ maxWidth: "680px", margin: "0 auto", width: "100%", textAlign: "center" }}>
-        <SectionHeader title="ESTABLISH.LINK" subtitle="CONNECT WITH ME" center />
 
+      {/* Scoped heading animations only — no effect on other sections */}
+      <style>{`
+        @keyframes contact-title-glow {
+          0%,100% { filter: drop-shadow(0 0 20px #00d4ff44); }
+          50%      { filter: drop-shadow(0 0 40px #00d4ffaa); }
+        }
+        @keyframes contact-bar-shimmer {
+          0%,100% { opacity: 0.6; }
+          50%      { opacity: 1; }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: "680px", margin: "0 auto", width: "100%", textAlign: "center" }}>
+
+        {/* ── NEW HEADING ── */}
+        <div style={{ marginBottom: "48px" }}>
+
+          {/* Subtitle line */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "12px",
+            fontSize: "11px", letterSpacing: "3px", color: "#00d4ff",
+            fontFamily: "'Share Tech Mono', monospace", marginBottom: "14px",
+          }}>
+            <div style={{ width: "30px", height: "1px", background: "linear-gradient(90deg, transparent, #00d4ff)", boxShadow: "0 0 8px #00d4ff" }} />
+            CONNECT WITH ME
+            <div style={{ width: "30px", height: "1px", background: "linear-gradient(90deg, #00d4ff, transparent)", boxShadow: "0 0 8px #00d4ff" }} />
+          </div>
+
+          {/* Main title */}
+          <h2 style={{
+            fontFamily: "'Orbitron', monospace",
+            fontSize: "clamp(26px, 5vw, 52px)",
+            fontWeight: 900,
+            letterSpacing: "4px",
+            margin: 0,
+            background: "linear-gradient(135deg, #e8f4ff 0%, #00d4ff 45%, #bf00ff 80%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            animation: "contact-title-glow 4s ease-in-out infinite",
+          }}>
+            ESTABLISH.LINK
+          </h2>
+
+          {/* Animated underbar dots */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginTop: "16px" }}>
+            <div style={{
+              width: "60px", height: "2px", borderRadius: "2px",
+              background: "linear-gradient(90deg, #00d4ff, #bf00ff)",
+              boxShadow: "0 0 12px #00d4ff, 0 0 24px #bf00ff44",
+              animation: "contact-bar-shimmer 3s ease-in-out infinite",
+            }} />
+            <div style={{ width: "10px", height: "2px", borderRadius: "2px", background: "#00d4ff44" }} />
+            <div style={{ width: "6px", height: "2px", borderRadius: "2px", background: "#00d4ff22" }} />
+          </div>
+        </div>
+
+        {/* ── ORIGINAL FORM — exact same as before ── */}
         <GlowCard style={{ textAlign: "left" }}>
           <div style={{ display: "grid", gap: "18px" }}>
 
@@ -200,13 +230,13 @@ export default function Contact() {
               />
             </div>
 
-            {/* STATUS BANNER */}
+            {/* STATUS BANNERS */}
             {status === "success" && (
               <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "12px 16px", border: "1px solid #00ff8855", borderRadius: "8px", background: "#00ff8808", animation: "fadeInUp 0.4s ease" }}>
                 <SuccessIcon />
                 <div>
                   <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "11px", color: "#00ff88", letterSpacing: "1.5px", marginBottom: "2px" }}>TRANSMISSION COMPLETE</div>
-                  <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "11px", color: "#00ff8888" }}>Message successfully sent! You’ll receive a reply soon.</div>
+                  <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "11px", color: "#00ff8888" }}>Message successfully sent! You'll receive a reply soon.</div>
                 </div>
               </div>
             )}
@@ -291,8 +321,8 @@ export default function Contact() {
 
           </div>
         </GlowCard>
+
       </div>
     </section>
   );
 }
-
